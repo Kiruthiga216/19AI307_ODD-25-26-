@@ -2,14 +2,29 @@
 
 ## QUESTION:
 
+Write a program to demonstrate chaining of streams (BufferedReader on top of InputStreamReader on top of System.in)
+
 
 ## AIM:
 
+To write a Java program that demonstrates stream chaining by placing a BufferedReader on top of an InputStreamReader, which in turn wraps System.in, and then reading user input using this chained stream.
+
+
+
 
 ## ALGORITHM :
-1.	Start the program.
-2.	Import the necessary package 'java.util'
-3.	
+
+Create a BufferedReader object by chaining:
+
+System.in → InputStreamReader → BufferedReader.
+
+Inside a try block Use readLine() to read the user's name.
+
+Use readLine() again to read the user's age.
+
+Print the collected details.
+
+Catch any IOException and display an appropriate error message.
 
 
 
@@ -19,21 +34,42 @@
  ```
 /*
 Program to implement a InputStreamReader using Java
-Developed by: 
-RegisterNumber:  
+Developed by: KIRUTHIGA.B
+RegisterNumber:  212224040160
 */
 ```
 
 ## SOURCE CODE:
 
+```
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-
-
-
+public class ChainingStreamsExample {
+    public static void main(String[] args) {
+        // Chaining: System.in -> InputStreamReader -> BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            String name = br.readLine();
+            String age = br.readLine();
+            System.out.println("--- User Details ---");
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
+```
 
 
 ## OUTPUT:
 
-
+<img width="610" height="467" alt="image" src="https://github.com/user-attachments/assets/66de7ec8-ddad-40dc-90a9-1cd48b328c39" />
 
 ## RESULT:
+
+Therefore the program successfully demonstrates chaining of input streams by reading user data through a BufferedReader wrapped over an InputStreamReader.
+
+
